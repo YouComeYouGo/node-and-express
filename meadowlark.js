@@ -4,6 +4,8 @@ var fortune = require('./lib/fortune.js');
 
 var app = express();
 
+//if( app.thing == null ) console.log( 'bleat!' );
+
 // 设置 handlebars 视图引擎
 var handlebars = require('express-handlebars').create({ defaultLayout:'main' });
 
@@ -34,6 +36,18 @@ app.get('/about', function(req, res){
         fortune: fortune.getFortune(),
         pageTestScript: '/qa/tests-about.js'
     } );
+});
+
+app.get('/tours/hood-river', function(req, res){
+    res.render('tours/hood-river');
+});
+
+app.get('/tours/request-group-rate', function(req, res){
+    res.render('tours/request-group-rate');
+});
+
+app.get('/tours/oregon-coast', function(req, res){
+    res.render('tours/oregon-coast');
 });
 
 // 定制404页面
